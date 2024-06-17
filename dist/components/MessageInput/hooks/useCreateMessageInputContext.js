@@ -1,0 +1,112 @@
+import { useMemo } from 'react';
+export const useCreateMessageInputContext = (value) => {
+    const { additionalTextareaProps, asyncMessagesMultiSendEnabled, attachments, audioRecordingEnabled, autocompleteTriggers, cancelURLEnrichment, clearEditingState, closeCommandsList, closeMentionsList, cooldownInterval, cooldownRemaining, disabled, disableMentions, dismissLinkPreview, doFileUploadRequest, doImageUploadRequest, emojiSearchIndex, errorHandler, fileOrder, fileUploads, findAndEnqueueURLsToEnrich, focus, grow, handleChange, handleSubmit, hideSendButton, imageOrder, imageUploads, insertText, isUploadEnabled, linkPreviews, maxFilesLeft, maxRows, mentionAllAppUsers, mentioned_users, mentionQueryParams, message, minRows, noFiles, numberOfUploads, onPaste, onSelectUser, openCommandsList, openMentionsList, overrideSubmitHandler, parent, publishTypingEvent, recordingController, removeAttachments, removeFile, removeImage, setCooldownRemaining, setText, shouldSubmit, showCommandsList, showMentionsList, text, textareaRef, uploadAttachment, uploadFile, uploadImage, uploadNewFiles, upsertAttachments, useMentionsTransliteration, } = value;
+    const editing = message?.editing;
+    const fileUploadsValue = Object.entries(fileUploads)
+        // eslint-disable-next-line
+        .map(([_, value]) => value.state)
+        .join();
+    const imageUploadsValue = Object.entries(imageUploads)
+        // eslint-disable-next-line
+        .map(([_, value]) => value.state)
+        .join();
+    const linkPreviewsValue = Array.from(linkPreviews.values()).join();
+    const mentionedUsersLength = mentioned_users.length;
+    const parentId = parent?.id;
+    const messageInputContext = useMemo(() => ({
+        additionalTextareaProps,
+        asyncMessagesMultiSendEnabled,
+        attachments,
+        audioRecordingEnabled,
+        autocompleteTriggers,
+        cancelURLEnrichment,
+        clearEditingState,
+        closeCommandsList,
+        closeMentionsList,
+        cooldownInterval,
+        cooldownRemaining,
+        disabled,
+        disableMentions,
+        dismissLinkPreview,
+        doFileUploadRequest,
+        doImageUploadRequest,
+        emojiSearchIndex,
+        errorHandler,
+        fileOrder,
+        fileUploads,
+        findAndEnqueueURLsToEnrich,
+        focus,
+        grow,
+        handleChange,
+        handleSubmit,
+        hideSendButton,
+        imageOrder,
+        imageUploads,
+        insertText,
+        isUploadEnabled,
+        linkPreviews,
+        maxFilesLeft,
+        maxRows,
+        mentionAllAppUsers,
+        mentioned_users,
+        mentionQueryParams,
+        message,
+        minRows,
+        noFiles,
+        numberOfUploads,
+        onPaste,
+        onSelectUser,
+        openCommandsList,
+        openMentionsList,
+        overrideSubmitHandler,
+        parent,
+        publishTypingEvent,
+        recordingController,
+        removeAttachments,
+        removeFile,
+        removeImage,
+        setCooldownRemaining,
+        setText,
+        shouldSubmit,
+        showCommandsList,
+        showMentionsList,
+        text,
+        textareaRef,
+        uploadAttachment,
+        uploadFile,
+        uploadImage,
+        uploadNewFiles,
+        upsertAttachments,
+        useMentionsTransliteration,
+    }), 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [
+        asyncMessagesMultiSendEnabled,
+        audioRecordingEnabled,
+        cancelURLEnrichment,
+        cooldownInterval,
+        cooldownRemaining,
+        dismissLinkPreview,
+        editing,
+        emojiSearchIndex,
+        fileUploadsValue,
+        findAndEnqueueURLsToEnrich,
+        handleSubmit,
+        hideSendButton,
+        imageUploadsValue,
+        isUploadEnabled,
+        linkPreviewsValue,
+        mentionedUsersLength,
+        minRows,
+        parentId,
+        publishTypingEvent,
+        recordingController,
+        removeAttachments,
+        showCommandsList,
+        showMentionsList,
+        text,
+        uploadAttachment,
+        upsertAttachments,
+    ]);
+    return messageInputContext;
+};

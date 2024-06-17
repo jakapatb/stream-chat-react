@@ -1,0 +1,11 @@
+import React, { ComponentType } from 'react';
+import { FileAttachmentPreviewProps } from './FileAttachmentPreview';
+import { ImageAttachmentPreviewProps } from './ImageAttachmentPreview';
+import type { DefaultStreamChatGenerics } from '../../../types';
+type PreviewAdapterProps<P> = {
+    id: string;
+    Preview?: ComponentType<P>;
+};
+export declare const ImageUploadPreviewAdapter: <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>({ id, Preview, }: PreviewAdapterProps<ImageAttachmentPreviewProps<StreamChatGenerics>>) => React.JSX.Element | null;
+export declare const FileUploadPreviewAdapter: <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>({ id, Preview, }: PreviewAdapterProps<FileAttachmentPreviewProps>) => React.JSX.Element | null;
+export {};
